@@ -5,6 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
 
     <title>MANIPUR (MN12) DRIVING LICENCE FEES CALCULATOR</title>
 
@@ -62,6 +63,8 @@
 
             background:
                 rgba(255, 255, 255, 0.08);
+
+            position: relative;
         }
 
         .header h1 {
@@ -353,6 +356,8 @@
         }
     </style>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+
 </head>
 
 <body>
@@ -362,7 +367,7 @@
         <div class="header">
 
             <h1>
-                Driving License Fee Calculator
+                MANIPUR (MN12) DRIVING LICENCE FEES CALCULATOR
             </h1>
 
             <p>
@@ -495,10 +500,23 @@
 
                     </div>
 
+                </div>
+
+                <div class="row">
+
                     <div class="col">
 
                         <button onclick="calculateFee()">
                             Calculate Total Payable
+                        </button>
+
+                    </div>
+
+                    <div class="col">
+
+                        <button onclick="resetForm()"
+                            style="background: linear-gradient(135deg, #ef4444, #dc2626); color: white;">
+                            Reset All
                         </button>
 
                     </div>
@@ -529,14 +547,21 @@
 
                     <div class="note">
 
-                        • Within 1 year from expiry → No Driving Test Fee<br>
-
-                        • After grace period → Driving Test Fee + ₹1000 per year<br>
-
-                        • Even 1 day delay counts as 1 year
+                        Thank you for using the MANIPUR (MN12) DRIVING LICENCE FEES CALCULATOR. This tool is designed to
+                        help you easily calculate the total fees payable for DL renewal, retest, and any additional fees
+                        based on your license category and vehicle classes. Please ensure that you enter accurate
+                        information to get the correct fee calculation. If you have any questions or need assistance,
+                        feel free to contact our support team. Drive safely!
 
                     </div>
 
+                </div>
+
+                <div style="text-align: center; margin: 30px 0;">
+                    <button onclick="downloadPageAsJPEG()"
+                        style="background: #34d399; color: white; border: none; min-width: 150px; height: 56px; padding: 0 20px; border-radius: 18px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(52, 211, 153, 0.25); transition: transform 0.2s ease; font-size: 16px; font-weight: 600;">
+                        DOWNLOAD
+                    </button>
                 </div>
 
             </div>
@@ -568,7 +593,7 @@
             </span>
 
             <span>
-                Driving License Fee Calculator
+                MANIPUR (MN12) DRIVING LICENCE FEES CALCULATOR
             </span>
 
         </div>
@@ -576,6 +601,13 @@
     </div>
 
     <script>
+
+        // Sanitize HTML to prevent XSS
+        function sanitizeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
 
         const today =
             new Date()
@@ -679,7 +711,12 @@
         function calculateFee() {
 
             const applicantName =
-                document.getElementById("applicantName").value;
+                sanitizeHTML(document.getElementById("applicantName").value.trim());
+
+            if (!applicantName) {
+                alert("Please enter the applicant name.");
+                return;
+            }
 
             const type =
                 document.getElementById("licenseType").value;
@@ -692,16 +729,27 @@
                     document.getElementById("renewalDate").value
                 );
 
+            if (isNaN(renewalDate.getTime())) {
+                alert("Please enter a valid renewal date.");
+                return;
+            }
+
             let drivingTestFee = 0;
 
             let additionalFee = 0;
 
             if (type === "nontransport") {
 
-                const expiryDate =
-                    new Date(
-                        document.getElementById("nonTransportDate").value
-                    );
+                const expiryDateStr = document.getElementById("nonTransportDate").value;
+                if (!expiryDateStr) {
+                    alert("Please enter the Non Transport expiry date.");
+                    return;
+                }
+                const expiryDate = new Date(expiryDateStr);
+                if (isNaN(expiryDate.getTime())) {
+                    alert("Please enter a valid Non Transport expiry date.");
+                    return;
+                }
 
                 calculateSingle(
                     expiryDate,
@@ -712,10 +760,16 @@
 
             else if (type === "transport") {
 
-                const expiryDate =
-                    new Date(
-                        document.getElementById("transportDate").value
-                    );
+                const expiryDateStr = document.getElementById("transportDate").value;
+                if (!expiryDateStr) {
+                    alert("Please enter the Transport expiry date.");
+                    return;
+                }
+                const expiryDate = new Date(expiryDateStr);
+                if (isNaN(expiryDate.getTime())) {
+                    alert("Please enter a valid Transport expiry date.");
+                    return;
+                }
 
                 calculateSingle(
                     expiryDate,
@@ -726,15 +780,27 @@
 
             else {
 
-                const nonDate =
-                    new Date(
-                        document.getElementById("bothNonTransportDate").value
-                    );
+                const nonDateStr = document.getElementById("bothNonTransportDate").value;
+                if (!nonDateStr) {
+                    alert("Please enter the Non Transport expiry date.");
+                    return;
+                }
+                const nonDate = new Date(nonDateStr);
+                if (isNaN(nonDate.getTime())) {
+                    alert("Please enter a valid Non Transport expiry date.");
+                    return;
+                }
 
-                const transDate =
-                    new Date(
-                        document.getElementById("bothTransportDate").value
-                    );
+                const transDateStr = document.getElementById("bothTransportDate").value;
+                if (!transDateStr) {
+                    alert("Please enter the Transport expiry date.");
+                    return;
+                }
+                const transDate = new Date(transDateStr);
+                if (isNaN(transDate.getTime())) {
+                    alert("Please enter a valid Transport expiry date.");
+                    return;
+                }
 
                 let nonAllowed =
                     new Date(nonDate);
@@ -1047,6 +1113,66 @@
             }
 
             return num;
+        }
+
+        function downloadAsJPEG() {
+            const resultDiv = document.getElementById('result');
+            domtoimage.toJpeg(resultDiv)
+                .then(function (dataUrl) {
+                    const link = document.createElement('a');
+                    link.download = 'driving_licence_fees_details.jpg';
+                    link.href = dataUrl;
+                    link.click();
+                })
+                .catch(function (error) {
+                    console.error('Error generating image:', error);
+                    alert('Error generating image. Please try again.');
+                });
+        }
+
+        function resetForm() {
+            // Clear all input fields
+            document.getElementById('applicantName').value = '';
+            document.getElementById('licenseType').value = 'nontransport';
+            document.getElementById('vehicleType').innerHTML = '';
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('renewalDate').value = today;
+            document.getElementById('renewalDate').max = today;
+            document.getElementById('nonTransportDate').value = '';
+            document.getElementById('transportDate').value = '';
+            document.getElementById('bothNonTransportDate').value = '';
+            document.getElementById('bothTransportDate').value = '';
+
+            // Hide result
+            document.getElementById('result').style.display = 'none';
+
+            // Reset vehicle options
+            updateVehicleOptions();
+        }
+
+        function downloadPageAsJPEG() {
+            const container = document.querySelector('.container');
+            const downloadButton = document.querySelector('button[onclick="downloadPageAsJPEG()"]');
+            const originalVisibility = downloadButton.style.visibility;
+
+            downloadButton.style.visibility = 'hidden';
+
+            setTimeout(function () {
+                domtoimage.toJpeg(container, { quality: 0.95 })
+                    .then(function (dataUrl) {
+                        const link = document.createElement('a');
+                        link.download = 'driving_licence_calculator.jpg';
+                        link.href = dataUrl;
+                        link.click();
+                    })
+                    .catch(function (error) {
+                        console.error('Error generating image:', error);
+                        alert('Error generating image. Please try again.');
+                    })
+                    .finally(function () {
+                        downloadButton.style.visibility = originalVisibility;
+                    });
+            }, 100);
         }
 
     </script>

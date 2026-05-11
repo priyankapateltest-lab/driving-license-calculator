@@ -279,33 +279,23 @@
 
         .premium-marquee {
 
-            position: fixed;
-
-            bottom: 0;
-
-            left: 0;
+            position: relative;
 
             width: 100%;
 
             overflow: hidden;
 
             background:
-                linear-gradient(90deg,
-                    #020617,
-                    #111827,
-                    #1e293b);
+                rgba(255, 255, 255, 0.08);
 
             border-top:
                 1px solid rgba(255, 255, 255, 0.1);
 
             padding: 14px 0;
 
-            z-index: 9999;
+            border-radius: 15px;
 
-            backdrop-filter: blur(10px);
-
-            box-shadow:
-                0 -5px 20px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
         }
 
         .premium-track {
@@ -353,6 +343,289 @@
             100% {
 
                 transform: translateX(-100%);
+            }
+        }
+
+        /* RESPONSIVE MEDIA QUERIES */
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                border-radius: 20px;
+            }
+
+            .header {
+                padding: 25px 15px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+                margin-bottom: 8px;
+            }
+
+            .header p {
+                font-size: 14px;
+            }
+
+            .main {
+                padding: 20px 15px;
+            }
+
+            .card {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            .row {
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .col {
+                min-width: 100%;
+                flex: 1 1 100%;
+            }
+
+            label {
+                margin-bottom: 8px;
+                font-size: 14px;
+            }
+
+            input,
+            select {
+                padding: 12px;
+                border-radius: 10px;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 14px;
+                border-radius: 10px;
+                font-size: 16px;
+            }
+
+            table {
+                font-size: 13px;
+                border-radius: 15px;
+            }
+
+            table th,
+            table td {
+                padding: 10px 8px;
+            }
+
+            .total-row td {
+                font-size: 18px;
+            }
+
+            .amount-box {
+                width: 100%;
+                max-width: 250px;
+                font-size: 26px;
+                padding: 15px;
+            }
+
+            .words {
+                font-size: 16px;
+                margin-top: 12px;
+            }
+
+            .amount {
+                margin-top: 20px;
+            }
+
+            .note {
+                font-size: 13px;
+                margin-top: 15px;
+            }
+
+            .premium-marquee {
+                margin-top: 15px;
+                padding: 10px 0;
+            }
+
+            .premium-track {
+                gap: 30px;
+            }
+
+            .premium-track span {
+                font-size: 14px;
+            }
+
+            .divider {
+                font-size: 18px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 20px 12px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+                margin-bottom: 5px;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+
+            .main {
+                padding: 15px 10px;
+            }
+
+            .card {
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            .row {
+                gap: 10px;
+                margin-bottom: 12px;
+            }
+
+            label {
+                margin-bottom: 6px;
+                font-size: 12px;
+            }
+
+            input,
+            select {
+                padding: 10px;
+                border-radius: 8px;
+                font-size: 13px;
+            }
+
+            button {
+                padding: 12px;
+                border-radius: 8px;
+                font-size: 14px;
+            }
+
+            table {
+                font-size: 11px;
+            }
+
+            table th,
+            table td {
+                padding: 8px 5px;
+            }
+
+            .total-row td {
+                font-size: 16px;
+            }
+
+            .amount-box {
+                width: 100%;
+                max-width: 220px;
+                font-size: 22px;
+                padding: 12px;
+            }
+
+            .words {
+                font-size: 14px;
+                margin-top: 10px;
+            }
+
+            .amount {
+                margin-top: 15px;
+            }
+
+            .note {
+                font-size: 12px;
+                margin-top: 12px;
+                line-height: 1.6;
+            }
+
+            .premium-marquee {
+                margin-top: 12px;
+                padding: 8px 0;
+            }
+
+            .premium-track {
+                gap: 20px;
+            }
+
+            .premium-track span {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+
+            .divider {
+                font-size: 16px !important;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1400px;
+            }
+
+            .header h1 {
+                font-size: 48px;
+            }
+
+            .col {
+                flex: 1;
+                min-width: 280px;
+            }
+        }
+
+        /* TABLE RESPONSIVENESS */
+        @media (max-width: 600px) {
+            table {
+                width: 100%;
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            table thead,
+            table tbody,
+            table th,
+            table td,
+            table tr {
+                display: block;
+            }
+
+            table th {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            table tr {
+                margin-bottom: 15px;
+                border: 1px solid #e5e7eb;
+                border-radius: 10px;
+                padding: 10px;
+            }
+
+            table td {
+                position: relative;
+                padding-left: 100px;
+                text-align: left;
+            }
+
+            table td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                font-weight: bold;
+                color: #2563eb;
+                width: 90px;
             }
         }
     </style>
@@ -565,87 +838,83 @@
                     </button>
                 </div>
 
+                <!-- PREMIUM MOVING CREDIT -->
+
+                <div class="premium-marquee">
+
+                    <div class="premium-track">
+
+                        <span>
+                            Developed By PRIYANKA PATEL (SDET)
+                        </span>
+
+                        <span class="divider">
+                            ✦
+                        </span>
+
+                        <span>
+                            Directed By Ajit Rout
+                        </span>
+
+                        <span class="divider">
+                            ✦
+                        </span>
+
+                        <span>
+                            MANIPUR (MN12) DRIVING LICENCE FEES CALCULATOR
+                        </span>
+
+                    </div>
+
+                </div>
+
             </div>
 
-        </div>
+            <script>
 
-    </div>
+                // Sanitize HTML to prevent XSS
+                function sanitizeHTML(str) {
+                    const div = document.createElement('div');
+                    div.textContent = str;
+                    return div.innerHTML;
+                }
 
-    <!-- PREMIUM MOVING CREDIT -->
+                const today =
+                    new Date()
+                        .toISOString()
+                        .split("T")[0];
 
-    <div class="premium-marquee">
+                document.getElementById("renewalDate").value =
+                    today;
 
-        <div class="premium-track">
+                //document.getElementById("renewalDate").max =
+                // today;
 
-            <span>
-                Developed By PRIYANKA PATEL (SDET)
-            </span>
+                function updateVehicleOptions() {
 
-            <span class="divider">
-                ✦
-            </span>
+                    const type =
+                        document.getElementById("licenseType").value;
 
-            <span>
-                Directed By Ajit Rout
-            </span>
+                    const vehicle =
+                        document.getElementById("vehicleType");
 
-            <span class="divider">
-                ✦
-            </span>
+                    document.getElementById("nonTransportDateRow").style.display =
+                        "none";
 
-            <span>
-                MANIPUR (MN12) DRIVING LICENCE FEES CALCULATOR
-            </span>
+                    document.getElementById("transportDateRow").style.display =
+                        "none";
 
-        </div>
+                    document.getElementById("bothDateRow").style.display =
+                        "none";
 
-    </div>
+                    vehicle.innerHTML = "";
 
-    <script>
+                    if (type === "nontransport") {
 
-        // Sanitize HTML to prevent XSS
-        function sanitizeHTML(str) {
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
+                        document.getElementById("nonTransportDateRow").style.display =
+                            "flex";
 
-        const today =
-            new Date()
-                .toISOString()
-                .split("T")[0];
-
-        document.getElementById("renewalDate").value =
-            today;
-
-        //document.getElementById("renewalDate").max =
-        // today;
-
-        function updateVehicleOptions() {
-
-            const type =
-                document.getElementById("licenseType").value;
-
-            const vehicle =
-                document.getElementById("vehicleType");
-
-            document.getElementById("nonTransportDateRow").style.display =
-                "none";
-
-            document.getElementById("transportDateRow").style.display =
-                "none";
-
-            document.getElementById("bothDateRow").style.display =
-                "none";
-
-            vehicle.innerHTML = "";
-
-            if (type === "nontransport") {
-
-                document.getElementById("nonTransportDateRow").style.display =
-                    "flex";
-
-                vehicle.innerHTML = `
+                        vehicle.innerHTML = `
 
             <option value="LMV">
                 LMV
@@ -664,28 +933,28 @@
             </option>
 
         `;
-            }
+                    }
 
-            else if (type === "transport") {
+                    else if (type === "transport") {
 
-                document.getElementById("transportDateRow").style.display =
-                    "flex";
+                        document.getElementById("transportDateRow").style.display =
+                            "flex";
 
-                vehicle.innerHTML = `
+                        vehicle.innerHTML = `
 
             <option value="TRANS">
                 TRANS
             </option>
 
         `;
-            }
+                    }
 
-            else {
+                    else {
 
-                document.getElementById("bothDateRow").style.display =
-                    "flex";
+                        document.getElementById("bothDateRow").style.display =
+                            "flex";
 
-                vehicle.innerHTML = `
+                        vehicle.innerHTML = `
 
             <option value="LMV+TRANS">
                 LMV + TRANS
@@ -704,236 +973,236 @@
             </option>
 
         `;
-            }
-        }
-
-        updateVehicleOptions();
-
-        function calculateFee() {
-
-            const applicantName =
-                sanitizeHTML(document.getElementById("applicantName").value.trim());
-
-            if (!applicantName) {
-                alert("Please enter the applicant name.");
-                return;
-            }
-
-            const type =
-                document.getElementById("licenseType").value;
-
-            const vehicleType =
-                document.getElementById("vehicleType").value;
-
-            const renewalDate =
-                new Date(
-                    document.getElementById("renewalDate").value
-                );
-
-            if (isNaN(renewalDate.getTime())) {
-                alert("Please enter a valid renewal date.");
-                return;
-            }
-
-            let drivingTestFee = 0;
-
-            let additionalFee = 0;
-
-            if (type === "nontransport") {
-
-                const expiryDateStr = document.getElementById("nonTransportDate").value;
-                if (!expiryDateStr) {
-                    alert("Please enter the Non Transport expiry date.");
-                    return;
-                }
-                const expiryDate = new Date(expiryDateStr);
-                if (isNaN(expiryDate.getTime())) {
-                    alert("Please enter a valid Non Transport expiry date.");
-                    return;
+                    }
                 }
 
-                calculateSingle(
-                    expiryDate,
-                    renewalDate,
-                    vehicleType
-                );
-            }
+                updateVehicleOptions();
 
-            else if (type === "transport") {
+                function calculateFee() {
 
-                const expiryDateStr = document.getElementById("transportDate").value;
-                if (!expiryDateStr) {
-                    alert("Please enter the Transport expiry date.");
-                    return;
-                }
-                const expiryDate = new Date(expiryDateStr);
-                if (isNaN(expiryDate.getTime())) {
-                    alert("Please enter a valid Transport expiry date.");
-                    return;
-                }
+                    const applicantName =
+                        sanitizeHTML(document.getElementById("applicantName").value.trim());
 
-                calculateSingle(
-                    expiryDate,
-                    renewalDate,
-                    vehicleType
-                );
-            }
-
-            else {
-
-                const nonDateStr = document.getElementById("bothNonTransportDate").value;
-                if (!nonDateStr) {
-                    alert("Please enter the Non Transport expiry date.");
-                    return;
-                }
-                const nonDate = new Date(nonDateStr);
-                if (isNaN(nonDate.getTime())) {
-                    alert("Please enter a valid Non Transport expiry date.");
-                    return;
-                }
-
-                const transDateStr = document.getElementById("bothTransportDate").value;
-                if (!transDateStr) {
-                    alert("Please enter the Transport expiry date.");
-                    return;
-                }
-                const transDate = new Date(transDateStr);
-                if (isNaN(transDate.getTime())) {
-                    alert("Please enter a valid Transport expiry date.");
-                    return;
-                }
-
-                let nonAllowed =
-                    new Date(nonDate);
-
-                nonAllowed.setFullYear(
-                    nonAllowed.getFullYear() + 1
-                );
-
-                if (renewalDate > nonAllowed) {
-
-                    if (vehicleType.includes("LMV")) {
-
-                        drivingTestFee += 300;
+                    if (!applicantName) {
+                        alert("Please enter the applicant name.");
+                        return;
                     }
 
-                    if (vehicleType.includes("MCWG")) {
+                    const type =
+                        document.getElementById("licenseType").value;
 
-                        drivingTestFee += 300;
-                    }
+                    const vehicleType =
+                        document.getElementById("vehicleType").value;
 
-                    if (vehicleType.includes("CNEQP")) {
-
-                        drivingTestFee += 300;
-                    }
-
-                    if (vehicleType.includes("LDRXCV")) {
-
-                        drivingTestFee += 300;
-                    }
-
-                    const diffDays =
-                        Math.ceil(
-                            (renewalDate - nonAllowed) /
-                            (1000 * 60 * 60 * 24)
+                    const renewalDate =
+                        new Date(
+                            document.getElementById("renewalDate").value
                         );
 
-                    const years =
-                        Math.ceil(diffDays / 365);
-
-                    additionalFee += years * 1000;
-                }
-
-                let transAllowed =
-                    new Date(transDate);
-
-                transAllowed.setFullYear(
-                    transAllowed.getFullYear() + 1
-                );
-
-                if (renewalDate > transAllowed) {
-
-                    if (vehicleType.includes("TRANS")) {
-
-                        drivingTestFee += 300;
+                    if (isNaN(renewalDate.getTime())) {
+                        alert("Please enter a valid renewal date.");
+                        return;
                     }
 
-                    const diffDays =
-                        Math.ceil(
-                            (renewalDate - transAllowed) /
-                            (1000 * 60 * 60 * 24)
+                    let drivingTestFee = 0;
+
+                    let additionalFee = 0;
+
+                    if (type === "nontransport") {
+
+                        const expiryDateStr = document.getElementById("nonTransportDate").value;
+                        if (!expiryDateStr) {
+                            alert("Please enter the Non Transport expiry date.");
+                            return;
+                        }
+                        const expiryDate = new Date(expiryDateStr);
+                        if (isNaN(expiryDate.getTime())) {
+                            alert("Please enter a valid Non Transport expiry date.");
+                            return;
+                        }
+
+                        calculateSingle(
+                            expiryDate,
+                            renewalDate,
+                            vehicleType
+                        );
+                    }
+
+                    else if (type === "transport") {
+
+                        const expiryDateStr = document.getElementById("transportDate").value;
+                        if (!expiryDateStr) {
+                            alert("Please enter the Transport expiry date.");
+                            return;
+                        }
+                        const expiryDate = new Date(expiryDateStr);
+                        if (isNaN(expiryDate.getTime())) {
+                            alert("Please enter a valid Transport expiry date.");
+                            return;
+                        }
+
+                        calculateSingle(
+                            expiryDate,
+                            renewalDate,
+                            vehicleType
+                        );
+                    }
+
+                    else {
+
+                        const nonDateStr = document.getElementById("bothNonTransportDate").value;
+                        if (!nonDateStr) {
+                            alert("Please enter the Non Transport expiry date.");
+                            return;
+                        }
+                        const nonDate = new Date(nonDateStr);
+                        if (isNaN(nonDate.getTime())) {
+                            alert("Please enter a valid Non Transport expiry date.");
+                            return;
+                        }
+
+                        const transDateStr = document.getElementById("bothTransportDate").value;
+                        if (!transDateStr) {
+                            alert("Please enter the Transport expiry date.");
+                            return;
+                        }
+                        const transDate = new Date(transDateStr);
+                        if (isNaN(transDate.getTime())) {
+                            alert("Please enter a valid Transport expiry date.");
+                            return;
+                        }
+
+                        let nonAllowed =
+                            new Date(nonDate);
+
+                        nonAllowed.setFullYear(
+                            nonAllowed.getFullYear() + 1
                         );
 
-                    const years =
-                        Math.ceil(diffDays / 365);
+                        if (renewalDate > nonAllowed) {
 
-                    additionalFee += years * 1000;
-                }
-            }
+                            if (vehicleType.includes("LMV")) {
 
-            function calculateSingle(expiryDate, renewalDate, vehicleType) {
+                                drivingTestFee += 300;
+                            }
 
-                let allowedDate =
-                    new Date(expiryDate);
+                            if (vehicleType.includes("MCWG")) {
 
-                allowedDate.setFullYear(
-                    allowedDate.getFullYear() + 1
-                );
+                                drivingTestFee += 300;
+                            }
 
-                if (renewalDate > allowedDate) {
+                            if (vehicleType.includes("CNEQP")) {
 
-                    if (vehicleType === "LMV") {
+                                drivingTestFee += 300;
+                            }
 
-                        drivingTestFee = 300;
-                    }
+                            if (vehicleType.includes("LDRXCV")) {
 
-                    else if (vehicleType === "MCWG+LMV") {
+                                drivingTestFee += 300;
+                            }
 
-                        drivingTestFee = 600;
-                    }
+                            const diffDays =
+                                Math.ceil(
+                                    (renewalDate - nonAllowed) /
+                                    (1000 * 60 * 60 * 24)
+                                );
 
-                    else if (vehicleType === "MCWG+LMV+CNEQP") {
+                            const years =
+                                Math.ceil(diffDays / 365);
 
-                        drivingTestFee = 900;
-                    }
+                            additionalFee += years * 1000;
+                        }
 
-                    else if (vehicleType === "MCWG+LMV+CNEQP+LDRXCV") {
+                        let transAllowed =
+                            new Date(transDate);
 
-                        drivingTestFee = 1200;
-                    }
-
-                    else if (vehicleType === "TRANS") {
-
-                        drivingTestFee = 300;
-                    }
-
-                    const diffDays =
-                        Math.ceil(
-                            (renewalDate - allowedDate) /
-                            (1000 * 60 * 60 * 24)
+                        transAllowed.setFullYear(
+                            transAllowed.getFullYear() + 1
                         );
 
-                    const years =
-                        Math.ceil(diffDays / 365);
+                        if (renewalDate > transAllowed) {
 
-                    additionalFee = years * 1000;
-                }
-            }
+                            if (vehicleType.includes("TRANS")) {
 
-            const changeAddressFee = 200;
+                                drivingTestFee += 300;
+                            }
 
-            const renewalRetestFee = 300;
+                            const diffDays =
+                                Math.ceil(
+                                    (renewalDate - transAllowed) /
+                                    (1000 * 60 * 60 * 24)
+                                );
 
-            const totalAmount =
-                changeAddressFee +
-                renewalRetestFee +
-                drivingTestFee +
-                additionalFee;
+                            const years =
+                                Math.ceil(diffDays / 365);
 
-            document.getElementById("result").style.display =
-                "block";
+                            additionalFee += years * 1000;
+                        }
+                    }
 
-            document.getElementById("feeTable").innerHTML = `
+                    function calculateSingle(expiryDate, renewalDate, vehicleType) {
+
+                        let allowedDate =
+                            new Date(expiryDate);
+
+                        allowedDate.setFullYear(
+                            allowedDate.getFullYear() + 1
+                        );
+
+                        if (renewalDate > allowedDate) {
+
+                            if (vehicleType === "LMV") {
+
+                                drivingTestFee = 300;
+                            }
+
+                            else if (vehicleType === "MCWG+LMV") {
+
+                                drivingTestFee = 600;
+                            }
+
+                            else if (vehicleType === "MCWG+LMV+CNEQP") {
+
+                                drivingTestFee = 900;
+                            }
+
+                            else if (vehicleType === "MCWG+LMV+CNEQP+LDRXCV") {
+
+                                drivingTestFee = 1200;
+                            }
+
+                            else if (vehicleType === "TRANS") {
+
+                                drivingTestFee = 300;
+                            }
+
+                            const diffDays =
+                                Math.ceil(
+                                    (renewalDate - allowedDate) /
+                                    (1000 * 60 * 60 * 24)
+                                );
+
+                            const years =
+                                Math.ceil(diffDays / 365);
+
+                            additionalFee = years * 1000;
+                        }
+                    }
+
+                    const changeAddressFee = 200;
+
+                    const renewalRetestFee = 300;
+
+                    const totalAmount =
+                        changeAddressFee +
+                        renewalRetestFee +
+                        drivingTestFee +
+                        additionalFee;
+
+                    document.getElementById("result").style.display =
+                        "block";
+
+                    document.getElementById("feeTable").innerHTML = `
 
         <tr>
 
@@ -1061,122 +1330,132 @@
 
     `;
 
-            document.getElementById("totalAmountBox").innerHTML =
-                "₹ " + totalAmount.toFixed(2);
+                    document.getElementById("totalAmountBox").innerHTML =
+                        "₹ " + totalAmount.toFixed(2);
 
-            document.getElementById("amountWords").innerHTML =
-                numberToWords(totalAmount) +
-                " Rupees Only";
-        }
+                    document.getElementById("amountWords").innerHTML =
+                        numberToWords(totalAmount) +
+                        " Rupees Only";
+                }
 
-        function numberToWords(num) {
+                function numberToWords(num) {
 
-            const ones = [
-                "",
-                "One", "Two", "Three", "Four", "Five",
-                "Six", "Seven", "Eight", "Nine", "Ten",
-                "Eleven", "Twelve", "Thirteen", "Fourteen",
-                "Fifteen", "Sixteen", "Seventeen",
-                "Eighteen", "Nineteen"
-            ];
+                    const ones = [
+                        "",
+                        "One", "Two", "Three", "Four", "Five",
+                        "Six", "Seven", "Eight", "Nine", "Ten",
+                        "Eleven", "Twelve", "Thirteen", "Fourteen",
+                        "Fifteen", "Sixteen", "Seventeen",
+                        "Eighteen", "Nineteen"
+                    ];
 
-            const tens = [
-                "",
-                "",
-                "Twenty", "Thirty", "Forty", "Fifty",
-                "Sixty", "Seventy", "Eighty", "Ninety"
-            ];
+                    const tens = [
+                        "",
+                        "",
+                        "Twenty", "Thirty", "Forty", "Fifty",
+                        "Sixty", "Seventy", "Eighty", "Ninety"
+                    ];
 
-            if (num < 20) {
+                    if (num < 20) {
 
-                return ones[num];
-            }
+                        return ones[num];
+                    }
 
-            else if (num < 100) {
+                    else if (num < 100) {
 
-                return tens[Math.floor(num / 10)] +
-                    " " +
-                    ones[num % 10];
-            }
+                        return tens[Math.floor(num / 10)] +
+                            " " +
+                            ones[num % 10];
+                    }
 
-            else if (num < 1000) {
+                    else if (num < 1000) {
 
-                return ones[Math.floor(num / 100)] +
-                    " Hundred " +
-                    numberToWords(num % 100);
-            }
+                        return ones[Math.floor(num / 100)] +
+                            " Hundred " +
+                            numberToWords(num % 100);
+                    }
 
-            else if (num < 100000) {
+                    else if (num < 100000) {
 
-                return numberToWords(Math.floor(num / 1000)) +
-                    " Thousand " +
-                    numberToWords(num % 1000);
-            }
+                        return numberToWords(Math.floor(num / 1000)) +
+                            " Thousand " +
+                            numberToWords(num % 1000);
+                    }
 
-            return num;
-        }
+                    return num;
+                }
 
-        function downloadAsJPEG() {
-            const resultDiv = document.getElementById('result');
-            domtoimage.toJpeg(resultDiv)
-                .then(function (dataUrl) {
-                    const link = document.createElement('a');
-                    link.download = 'driving_licence_fees_details.jpg';
-                    link.href = dataUrl;
-                    link.click();
-                })
-                .catch(function (error) {
-                    console.error('Error generating image:', error);
-                    alert('Error generating image. Please try again.');
-                });
-        }
+                function downloadAsJPEG() {
+                    const resultDiv = document.getElementById('result');
+                    domtoimage.toJpeg(resultDiv)
+                        .then(function (dataUrl) {
+                            const link = document.createElement('a');
+                            link.download = 'driving_licence_fees_details.jpg';
+                            link.href = dataUrl;
+                            link.click();
+                        })
+                        .catch(function (error) {
+                            console.error('Error generating image:', error);
+                            alert('Error generating image. Please try again.');
+                        });
+                }
 
-        function resetForm() {
-            // Clear all input fields
-            document.getElementById('applicantName').value = '';
-            document.getElementById('licenseType').value = 'nontransport';
-            document.getElementById('vehicleType').innerHTML = '';
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('renewalDate').value = today;
-            document.getElementById('renewalDate').max = today;
-            document.getElementById('nonTransportDate').value = '';
-            document.getElementById('transportDate').value = '';
-            document.getElementById('bothNonTransportDate').value = '';
-            document.getElementById('bothTransportDate').value = '';
+                function resetForm() {
+                    // Clear all input fields
+                    document.getElementById('applicantName').value = '';
+                    document.getElementById('licenseType').value = 'nontransport';
+                    document.getElementById('vehicleType').innerHTML = '';
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('renewalDate').value = today;
+                    document.getElementById('renewalDate').max = today;
+                    document.getElementById('nonTransportDate').value = '';
+                    document.getElementById('transportDate').value = '';
+                    document.getElementById('bothNonTransportDate').value = '';
+                    document.getElementById('bothTransportDate').value = '';
 
-            // Hide result
-            document.getElementById('result').style.display = 'none';
+                    // Hide result
+                    document.getElementById('result').style.display = 'none';
 
-            // Reset vehicle options
-            updateVehicleOptions();
-        }
+                    // Reset vehicle options
+                    updateVehicleOptions();
+                }
 
-        function downloadPageAsJPEG() {
-            const container = document.querySelector('.container');
-            const downloadButton = document.querySelector('button[onclick="downloadPageAsJPEG()"]');
-            const originalVisibility = downloadButton.style.visibility;
+                function downloadPageAsJPEG() {
+                    const container = document.body;
+                    const downloadButton = document.querySelector('button[onclick="downloadPageAsJPEG()"]');
+                    const marqueeTrack = document.querySelector('.premium-track');
 
-            downloadButton.style.visibility = 'hidden';
+                    const originalButtonVisibility = downloadButton.style.visibility;
+                    const originalAnimation = marqueeTrack.style.animation;
+                    const originalTransform = marqueeTrack.style.transform;
 
-            setTimeout(function () {
-                domtoimage.toJpeg(container, { quality: 0.95 })
-                    .then(function (dataUrl) {
-                        const link = document.createElement('a');
-                        link.download = 'driving_licence_calculator.jpg';
-                        link.href = dataUrl;
-                        link.click();
-                    })
-                    .catch(function (error) {
-                        console.error('Error generating image:', error);
-                        alert('Error generating image. Please try again.');
-                    })
-                    .finally(function () {
-                        downloadButton.style.visibility = originalVisibility;
-                    });
-            }, 100);
-        }
+                    downloadButton.style.visibility = 'hidden';
+                    marqueeTrack.style.animation = 'none';
+                    marqueeTrack.style.transform = 'translateX(0)';
 
-    </script>
+                    setTimeout(function () {
+                        domtoimage.toJpeg(container, { quality: 0.95 })
+                            .then(function (dataUrl) {
+                                const link = document.createElement('a');
+                                const applicantName = document.getElementById('applicantName').value.trim();
+                                const fileName = applicantName ? applicantName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase() + '.jpg' : 'driving_licence_calculator.jpg';
+                                link.download = fileName;
+                                link.href = dataUrl;
+                                link.click();
+                            })
+                            .catch(function (error) {
+                                console.error('Error generating image:', error);
+                                alert('Error generating image. Please try again.');
+                            })
+                            .finally(function () {
+                                downloadButton.style.visibility = originalButtonVisibility;
+                                marqueeTrack.style.animation = originalAnimation;
+                                marqueeTrack.style.transform = originalTransform;
+                            });
+                    }, 100);
+                }
+
+            </script>
 
 </body>
 
